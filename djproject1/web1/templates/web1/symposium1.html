@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CSIR-Symposium</title>
+<style>
+	   #f11 {
+		    width:100%;
+			padding: 10px ;
+            border: 1px solid black ;
+		}
+
+        #f12 {
+		    width:10%;	
+            position: relative;
+            text-align:center;
+            font-size:20px;
+			font-family:Arial;
+            background-color: rgb(0,30,80);
+            padding: 10px ;
+            border: 1px solid black ;
+			float: top;
+		}
+
+	</style>
+</head>
+<body>
+
+{% extends "web1/symposium.html" %}
+{% block  symposium%}
+</br>
+</br>
+
+<div id="f12"><a href="{% url 'symposium1' %}" style="text-decoration:none; color: white;">Add</a></div>
+</br>
+
+<div id="f11">
+    <div class="container">
+        <form action="{% url 'symposium1' %}" method="post">
+            {% csrf_token %}
+                <div class="panel panel-default">
+                    
+                    <div class="panel-body">
+                        {% if error_message %}
+                            <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+                        {% endif %}
+
+
+	<h1 style="font-size:100%, font-weight: bold;"><center>COUNCIL OF SCIENTIFIC AND INDUSTRIAL RESEARCH HUMAN RESOURCE DEVELOPMENT GROUP
+		</center></h1>
+	<h1  style="font-size:100%;"><center>
+ 		CSIR COMPLEX OPP INSTITUTE OF HOTEL MANAGEMENT LIBRARY AVENUE, PUSA, NEW DELHI- 110012, INDIA<br>
+		Email: tgsm[at]csirhrdg[dot]res[dot]in<br>
+		Phone:011-25841037
+</center>
+  	</h1>
+	<p><center>Symposia Grant Scheme for Organising Scientific Events (Symposia/ Seminars / Conferences/ 
+              workshops, etc.) within India	
+	</center></p>
+<br/>
+<h1 style="font-size:110%;"><center><b>SUMMARY SHEET (<u>To be filled by the applicant in duplicate</u>)</b></center></h1>
+<br/>
+<br/>
+
+1. Name of the Society/Academic Institution/Research Organization 
+under whose auspices the Scientific</br>  
+&emsp;Event(Symposium/Seminar/Conference/Workshop/others)  
+is  proposed  to  be organized : &emsp;<input type="text" name="society_name">
+<br/>
+<br/>
+2.  a) Full title of the Scientific Activity : &emsp;<input type="text" name="title"> 
+<br/>
+<br/>
+&emsp;b) Nature of the Scientific Event: :&emsp; <input type="radio" name="event_type" value="Regional">Regional
+<input type="radio" name="event_type" value="National">National
+<input type="radio" name="event_type" value="International">International
+<br/>
+<br/>
+3. State : &emsp;<input type="text" name="state"> City : &emsp;<input type="text" name="city">
+<br/>
+<br/>
+4. Dates  : From &emsp;<input  name="start_date" type="date"/>&emsp;  to &emsp;<input name="end_date"   type="date"/>
+<br/>
+<br/>
+5. Name and affiliation of the organizers</br>
+&emsp;a) Chairperson:&emsp;<input type="text" name="chairperson"></br></br>
+&emsp;b) Organizing Secretary:&emsp;<input type="text" name="secretary"></br>
+<br/>
+
+6. No. of delegates expected:  &emsp; No s.-<input type="text" name="delegates">&emsp; 
+<br/>
+<br/>
+7. Anticipated expenditure ( Total)  :	Rs. <input type="text" name="expenditure">	 	
+<br/>
+<br/>
+8. Expected income from all sources :	Rs. <input type="text" name="required">
+<br/>
+<br/>
+9. Grant requested from CSIR:  Rs. <input type="text" name="requested">
+<br/>
+<p><b>10.<u> Attachments with the Application (Mandatory)</u>:<br>
+&emsp;a. Application  proforma  no  CSIR/SYM/19/MAIN  complete  in  all  respects,  duly
+	signed by authorised signatory with the official seal<br>
+&emsp;b. Authority letter from the Society/Academic Institution/Research Organization
+	for organizing the scientific activity.<br>
+&emsp;c. Copy of the Audited Statement of expenditure/Utilisation certificate of the last grant received from CSIR, if any:<br>
+&emsp;d. Brochure of the proposed scientific activity<br>
+</b>
+</p>
+<br/>
+<br/>
+<br/>
+<input type="submit" value="Submit">
+
+    </div>
+	</div>
+	</div>
+	</div>
+{% endblock %}
+
+</body>
+</html>

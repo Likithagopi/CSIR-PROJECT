@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSIR-Login</title>
+	 <style>
+
+		#head {
+		         width:30%;
+				 left: 50%;
+				 margin-left: -225px;
+                 top: 50%;
+				 
+            position: relative;
+                  text-align:left;
+                    color: white;
+					font-size:40px;
+					font-style:bold;
+					font-family:Arial;
+                    border-collapse:collapse;
+					  background-color: rgb(0,30,80);
+                      padding: 20px ;
+                      border: 1.5px solid black ;
+		}
+		       #head1{ 
+                 width:30%;
+				    left: 50%;
+            
+            margin-left: -225px;
+                  position: relative;
+                  text-align:left;
+                    color: black;
+					font-size: 17.5px  ;
+					font-family:Arial;
+                    border-collapse:collapse;
+					  background-color: white;
+                      padding: 20px ;
+                      border: 1.5px solid black ;
+					  float: center;
+				  }
+ 
+
+       input{text-align:right;}
+
+ </style>
+
+</head>
+<body>
+
+{% block body_block %}
+  <div class="container">
+    <div class="jumbotron">
+      
+<form method="post" action="{% url 'user_login' %}">
+          {% csrf_token %}
+		  </br></br></br></br></br>
+		 <div> <div id="head" style=""><b>CSIR </div>
+
+          <div id="head1"></br><label >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Username </label></br>
+          &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input style="text-align:left;" type="text" name="username" placeholder="Enter Username" ></br></br>
+
+          <label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Password </label></br>
+          &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input style="text-align:left;" type="password" name="password" placeholder="Enter Password" ></br></br>
+
+         &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="submit" name="" value="Login" style="border-radius: 5px ; border:1.5px solid black; width:25%; text-align:center; float:center;">
+
+        <div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a href="{% url 'index' %}"><input  type="button" name="" value="Back" style="border-radius: 5px ; border:1.5px solid black; width:25%; text-align:center; float:center;"></a></div></div>
+
+</form>
+</div>
+  </div>
+{% endblock %}
+</body>
+</html>

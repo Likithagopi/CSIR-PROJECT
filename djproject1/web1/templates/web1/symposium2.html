@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CSIR-Symposium</title>
+
+
+	<style>
+	    table,td,th
+		    {
+			border:1px solid black;
+			width:33%;
+			text-align:center;
+			
+			border-collapse:collapse;
+		    }
+	
+
+	   input {text-align:right;}
+
+	   #f11 {
+		    width:100%;
+			padding: 10px ;
+            border: 1px solid black ;
+		    }
+
+        #f12 {
+		    width:10%;	
+            position: relative;
+            text-align:center;
+            font-size:20px;
+			font-family:Arial;
+            background-color: rgb(0,30,80);
+            padding: 10px ;
+            border: 1px solid black ;
+			float: top;
+		    }
+
+	</style>
+</head>
+<body>
+
+{% extends "web1/symposium.html" %}
+{% block symposium%}
+</br>
+</br>
+
+<div id="f12"><a href="{% url 'symposium2' %}" style="text-decoration:none; color: white;">Add</a></div>
+</br>
+
+<div id="f11">
+    <div class="container">
+        <form action="{% url 'symposium2' %}" method="post">
+            {% csrf_token %}
+                <div class="panel panel-default">
+                    
+                    <div class="panel-body">
+                        {% if error_message %}
+                            <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+                        {% endif %}
+
+
+	<h1 style="font-size:100%, font-weight: bold;"><center>COUNCIL OF SCIENTIFIC AND INDUSTRIAL RESEARCH HUMAN RESOURCE DEVELOPMENT GROUP
+		</center></h1>
+	<h1  style="font-size:100%;"><center>
+ 		CSIR COMPLEX OPP INSTITUTE OF HOTEL MANAGEMENT LIBRARY AVENUE, PUSA, NEW DELHI- 110012, INDIA<br>
+		Email: tgsm[at]csirhrdg[dot]res[dot]in<br>
+		Phone:011-25841037
+</center>
+  	</h1>
+	<p><center>Symposia Grant Scheme for Organising Scientific Events (Symposia/ Seminars / Conferences/ 
+              workshops, etc.) within India	
+	</center></p>
+<br/>
+<h2 style="font-size:110%;"><center><b>MAIN APPLICATION - <u>(TO BE FILLED IN BY THE ORGANIZERS) 
+                                                  </u></b></center></h2>
+<br/>
+<br/>
+1. a) Name of the Organisation under whose auspices,Scientific Event is proposed to be organized : <input type="text" name="org_name">
+<br/>
+<br/>
+&emsp;b) Nature of the organization (Pls select):
+<br/>
+<br/>
+
+<table style="width:65%">
+	<tr>
+		<th>S.NO </th>
+		<th>Institution/scientific organization:</th>
+		<th>Mark:</th>
+	</tr>
+	<tr>	
+		<td>&emsp;1</td>
+		<td>Govt. Organization</td>
+		<td><input type="radio" name="nature" value="Govt. Organization"></td>
+	</tr>
+	<tr>	
+		<td>&emsp;2</td>
+		<td>Central University</td>
+		<td><input type="radio" name="nature" value="Central University"></td>
+	</tr>
+	<tr>	
+		<td>&emsp;3</td>
+		<td>State University</td>
+		<td><input type="radio" name="nature" value="State University"></td>
+	</tr>
+	<tr>	
+		<td>&emsp;4</td>
+		<td>Deemed University</td>
+		<td><input type="radio" name="nature" value="Deemed University"></td>
+	</tr>
+	<tr>	
+		<td>&emsp;5</td>
+		<td>State Govt College</td>
+		<td><input type="radio" name="nature" value="State Govt College"></td>
+	</tr>
+	<tr>	
+		<td>&emsp;6</td>
+		<td>Private College</td>
+		<td><input type="radio" name="nature" value="Private College"></td>
+	</tr>
+	<tr>	
+		<td>&emsp;7</td>
+		<td>Autonomous Body</td>
+		<td><input type="radio" name="nature" value="Autonomous Body"></td>
+	</tr>
+	<tr>	
+		<td>&emsp;8</td>
+		<td>Research Institute</td>
+		<td><input type="radio" name="nature" value="Research Institute<"></td>
+	</tr>
+	<tr>	
+		<td>&emsp;9</td>
+		<td>Professional Body</td>
+		<td><input type="radio" name="nature" value="Professional Body"></td>
+	</tr>
+	<tr>	
+		<td>&emsp;10</td>
+		<td>Registered Society</td>
+		<td><input type="radio" name="nature" value="Registered Society"></td>
+	</tr>
+	<tr>	
+		<td>&emsp;11</td>
+		<td>Public Sector Undertaking</td>
+		<td><input type="radio" name="nature" value="Public Sector Undertaking"></td>
+	</tr>
+	<tr>	
+		<td>&emsp;12</td>
+		<td>Others (Pls Specify)  
+		    <input type="text" name="other"></td>
+		<td><input type="radio" name="nature" value="other"></td>
+	</tr>
+
+	</table>
+
+<br/>
+<br/>
+2. a) Full title of the Event : <input type="text" name="title">
+<br/>
+<br/>
+&emsp;b) Major discipline in which it falls (Pl select):
+<br/>
+<br/>
+&emsp;&emsp;&emsp;<input type="radio" name="discipline" value="chemical">Chemical Sciences
+&emsp;<input type="radio" name="discipline" value="life">Life Sciences
+&emsp;<input type="radio" name="discipline" value="engg">Engineering
+&emsp;<input type="radio" name="discipline" value="math">Mathematical Sciences 
+<br/>
+<br/>
+&emsp;&emsp;&emsp;<input type="radio" name="discipline" value="phy">Physical Sciences
+&emsp;<input type="radio" name="discipline" value="earth">Earth Environment, Ocean and Atmospheric Sciences 
+<br/>
+<br/>
+&emsp;&emsp;&emsp;<input type="radio" name="discipline" value="sc">Sciences
+&emsp;&emsp;&emsp;&emsp;&emsp;<input type="radio" name="discipline" value="multi">Multi-disciplinary
+&emsp;<input type="radio" name="discipline" value="it"> IT/ITES/Information Sciences
+<br/>
+<br/>
+&emsp;c) Venue of the Event:Address : <textarea name="address" rows="3" cols="30"  required value="message"  maxlength="100" style="resize:none"></textarea>
+<br/>
+<br/>
+&emsp;&emsp;City : <input type="text" name="city"> &emsp;
+State : <input type="text" name="state">&emsp;
+PIN : <input type="text" name="pin">
+<br/>
+<br/>
+&emsp;d) Date of the Event : From &emsp;<input type="date" name="event_start">&emsp;  to &emsp;<input type="date" name="event_end">
+<br/>
+<br/>
+&emsp;e) Organizers (Name and affiliation):<br/>
+<br/>
+&emsp;&emsp;&emsp;Chairperson : <input type="text" name="chair_name">
+<br/>
+<br/>
+&emsp;&emsp;&emsp;Organizing Secretary : <input type="text" name="chair_org">
+<br/>
+<br/>
+&emsp;f) Complete Address of the<b> contact person for all Communications</b>: 
+<br/>
+<br/>
+&emsp;&emsp;&emsp;Name :&emsp;<input type="radio" name="prefix" value="Dr">Dr/
+<input type="radio" name="prefix" value="Mr">Mr/
+<input type="radio" name="prefix" value="Ms">Ms
+&nbsp;&nbsp;<input type="text" name="name">
+<br/>
+<br/>
+&emsp;&emsp;&emsp;<input type="radio" name="gender" value="M">MALE
+	          <input type="radio" name="gender" value="F">FEMALE
+<br/>
+<br/>
+&emsp;&emsp;&emsp;Designation : <input type="text" name="person_desig">
+<br/>
+<br/>
+&emsp;&emsp;&emsp;Department(if any) : <input type="text" name="person_dept">
+<br/>
+<br/>
+&emsp;&emsp;&emsp;Name of the Institute/Society : <input type="text" name="person_inst">
+<br/>
+<br/>
+&emsp;&emsp;&emsp;Address :<textarea name="person_add" rows="3" cols="30"  required value="message"  maxlength="100" style="resize:none"></textarea>
+<br/>
+<br/>
+&emsp;&emsp;&emsp;City : <input type="text" name="person_city"> &emsp;
+State : <input type="text" name="person_state">&emsp;
+PIN : <input type="text" name="person_pin">
+<br/>
+<br/>
+&emsp;&emsp;&emsp;Contact No with STD code :<select id="std" name="std" >
+                                        <option value="+91">+91 </option>
+                                        <option value="+672">+672</option>
+                                        <option value="+60">+60</option>
+										<option value="+960">+960</option>
+                                        </select>&emsp;
+Mobile : <input type="number" name="person_phone">&emsp;
+Email ID : <input type="email" name="person_email">
+<br/>
+<br/>
+3. When was an activity on the similar topic organized by you last: <input type="text" name="last_activity">
+<br/>
+<br/>
+4. a) Main theme of the Scientific Activity : <input type="text" name="theme">
+<br/>
+<br/>
+&emsp;b) Details on the scientific program and technical sessions : <textarea name="details" rows="3" cols="30"  required value="message"  maxlength="100" style="resize:none"></textarea>
+<br/>
+<br/>
+5. a) Relevance in the national context : <input type="text" name="relevance">
+<br/>
+<br/>
+&emsp;b) How will the activity help in the promotion of science : <textarea name="promotion" rows="3" cols="30"  required value="message"  maxlength="100" style="resize:none"></textarea>
+<br/>
+<br/>
+6. a) Indicate which of the CSIR laboratories/institutions are engaged in the main theme of the scientific 
+      activity:
+<br/>
+<br/>
+<table style="width:65%">
+	<tr>
+		<th>  </th>
+		<th>Name of the CSIR Laboratory:</th>
+		<th>Theme Area/Technical Session:</th>
+	</tr>
+	<tr>	
+		<td>&emsp;1</td>
+		<td><input type="text" name="csir_lab1"></td>
+		<td><input type="text" name="theme1"></td>
+	</tr>
+	<tr>	
+		<td>&emsp;2</td>
+		<td><input type="text" name="csir_lab2"></td>
+		<td><input type="text" name="theme2"></td>
+	</tr>
+	</table>
+
+<br/>
+<br/>
+&emsp;b) Indicate if any CSIR Scientists are expected to participate:
+<br/>
+<br/>
+<table style="width:65%">
+	<tr>
+		<th>  </th>
+		<th>Name of the scientist:</th>
+		<th>Laboratory/Institution:</th>
+	</tr>
+	<tr>	
+		<td>&emsp;1</td>
+		<td><input type="text" name="sci_name1"></td>
+		<td><input type="text" name="sci_lab1"></td>
+	</tr>
+	<tr>	
+		<td>&emsp;2</td>
+		<td><input type="text" name="sci_name2"></td>
+		<td><input type="text" name="sci_lab2"></td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+7. Authority letter from organization permitting Organizers to hold the Event enclosed?
+	<input type="radio" name="permit" value="yes">YES/
+	<input type="radio" name="permit" value="no">NO
+<br/>
+<br/>
+8. a) Details of Participation :
+<br/>
+<br/>
+<table>
+	<tr>
+		<th>Total delegates</th>
+	</tr>
+	<tr>	
+		<td>National</td>
+		<td><input type="text" name="national_no">Nos</td>
+	</tr>
+	<tr>	
+		<td>International</td>
+		<td><input type="text" name="international_no">Nos</td>
+	</tr>
+</table>
+<br/>
+<br/>
+<table>
+	<tr>
+		<th>Young Scientists</th>
+	</tr>
+	<tr>	
+		<td>Ph.D.Students/Res.fellows</td>
+		<td><input type="text" name="phd_no">Nos</td>
+	</tr>
+	<tr>	
+		<td>Post Docs</td>
+		<td><input type="text" name="postgrad_no">Nos</td>
+	</tr>
+</table>
+<br/>
+<br/>
+b) Principal speakers (Keynote/Plenary and Invited)
+<br/>
+<br/>
+<table>
+	<tr>
+		<th>S.No.</th>
+		<th>Name</th>
+		<th>Institution</th>
+	</tr>
+	<tr>	
+		<td>1.</td>
+		<td><input type="text" name="speak_name1"></td>
+		<td><input type="text" name="speak_institute1"></td>
+	</tr>
+	<tr>	
+		<td>2.</td>
+		<td><input type="text" name="speak_name2"></td>
+		<td><input type="text" name="speak_institute2"></td>
+	</tr>
+	<tr>	
+		<td>3.</td>
+		<td><input type="text" name="speak_name3"></td>
+		<td><input type="text" name="speak_institute3"></td>
+	</tr>
+</table>
+<br/>
+<br/>
+9. Details of Young Scientist sessions, if any &emsp;
+		<input type="radio" name="session_type" value="oral">ORAL &emsp;&emsp;
+		<input type="radio" name="session_type" value="poster">POSTER
+<br/>
+<br/>
+10. Indicate How many delegates will be offered support (Approx. Nos.): 
+<br/>
+<br/>
+&emsp;&emsp;Travel <input type="text" name="support_travel">
+&emsp;&emsp;Registration <input type="text" name="support_registration">
+&emsp;&emsp;Local Hospitality <input type="text" name="support_hospitality">
+<br/>
+<br/>
+11. <b>Anticipated expenditure under the following heads</b>:
+<br/>
+<br/>
+<table style="width:65%">
+	<tr>
+		<th>S.No. </th>
+		<th>      </th>
+		<th>Amount (Rs):</th>
+	</tr>
+	<tr>	
+		<td>1.</td>
+		<td>Travel support<br/>
+		&emsp;	c.   Senior scientists:<br/>
+		&emsp;	d.   Young Scientists :
+		</td>
+		<td>&emsp;&emsp;<input type="text" name="asenior_amount"><br/>
+		    &emsp;&emsp;<input type="text" name="ayoung_amount">
+		</td>
+	</tr>
+	<tr>	
+		<td>2.</td>
+		<td>Registration Fee Waiver<br/>
+		&emsp;	c.   Senior scientists:<br/>
+		&emsp;	d.   Young Scientists :
+		</td>
+		<td>&emsp;&emsp;<input type="text" name="asenior_regist"><br/>
+		    &emsp;&emsp;<input type="text" name="ayoung_regist">
+		</td>
+	</tr>
+	<tr>	
+		<td>3.</td>
+		<td>Promotion (web site, brochures, others):</td>
+		<td>&emsp;&emsp;<input type="text" name="apromo_fee"></td>
+	</tr>
+	<tr>	
+		<td>4.</td>
+		<td>Secretarial assistance</td>
+		<td>&emsp;&emsp;<input type="text" name="aassist_fee"></td>
+	</tr>
+	<tr>	
+		<td>5.</td>
+		<td>Local Hospitality</td>
+		<td>&emsp;&emsp;<input type="text" name="ahospitality"></td>
+	</tr>
+	<tr>	
+		<td>6.</td>
+		<td>Venue Charges</td>
+		<td>&emsp;&emsp;<input type="text" name="avenue_fee"></td>
+	</tr>
+	<tr>	
+		<td> </td>
+		<td><b>TOTAL</b></td>
+		<td>&emsp;&emsp;<input type="text" name="aanti_expendtotal"></td>
+	</tr>
+</table>
+<br/>
+<br/>
+12. <b>Anticipated income</b>:
+<br/>
+<br/>
+<table style="width:65%">
+	<tr>
+		<th>S.No. </th>
+		<th>Details</th>
+		<th>Amount (Rs):</th>
+	</tr>
+	<tr>	
+		<td>1.</td>
+		<td>Registration fee</td>
+		<td>&emsp;&emsp;<input type="text" name="anti_regist"></td>
+	</tr>
+	<tr>	
+		<td>2.</td>
+		<td>Scientific Exhibition</td>
+		<td>&emsp;&emsp;<input type="text" name="anti_ehibit"></td>
+	</tr>
+	<tr>	
+		<td>3.</td>
+		<td>Grant from the organizing society/Institution/organisation</td>
+		<td>&emsp;&emsp;<input type="text" name="anti_grant"></td>
+	</tr>
+	<tr>	
+		<td>4.</td>
+		<td>Sponsorship</td>
+		<td>&emsp;&emsp;<input type="text" name="anti_sponser"></td>
+	</tr>
+	<tr>	
+		<td>5.</td>
+		<td>Any other Source</td>
+		<td>&emsp;&emsp;<input type="text" name="anti_other"></td>
+	</tr>
+	<tr>	
+		<td> </td>
+		<td><b>TOTAL</b></td>
+		<td>&emsp;&emsp;<input type="text" name="anti_total"></td>
+	</tr>
+</table>
+
+
+<br/>
+<br/>
+13. <b>Estimated Head-wise Grant requested from CSIR</b>:
+<br/>
+<br/>
+<table style="width:65%">
+	<tr>
+		<th>S.No. </th>
+		<th>Budget Head:</th>
+		<th>Amount (Rs):</th>
+	</tr>
+	<tr>	
+		<td>1.</td>
+		<td>Travel expenses for<br/>
+		&emsp;	c.   Senior scientists:<br/>
+		&emsp;	d.   Young Scientists :
+		</td>
+		<td>&emsp;&emsp;<input type="text" name="esenior_amount"><br/>
+		    &emsp;&emsp;<input type="text" name="eyoung_amount">
+		</td>
+	</tr>
+	<tr>	
+		<td>2.</td>
+		<td>Registration Fee Waiver<br/>
+		&emsp;	c.   Senior scientists:<br/>
+		&emsp;	d.   Young Scientists :
+		</td>
+		<td>&emsp;&emsp;<input type="text" name="esenior_regist"><br/>
+		    &emsp;&emsp;<input type="text" name="eyoung_regist">
+		</td>
+	</tr>
+	<tr>	
+		<td>3.</td>
+		<td>Promotion (web site, brochures, Stationery, proceedings):</td>
+		<td>&emsp;&emsp;<input type="text" name="epromo_fee"></td>
+	</tr>
+	<tr>	
+		<td>4.</td>
+		<td>Secretarial assistance</td>
+		<td>&emsp;&emsp;<input type="text" name="eassist_fee"></td>
+	</tr>
+	<tr>	
+		<td>5.</td>
+		<td>Local Hospitality</td>
+		<td>&emsp;&emsp;<input type="text" name="ehospitality"></td>
+	</tr>
+	<tr>	
+		<td>6.</td>
+		<td>Venue Charges</td>
+		<td>&emsp;&emsp;<input type="text" name="evenue_fee"></td>
+	</tr>
+	<tr>	
+		<td> </td>
+		<td><b>TOTAL</b></td>
+		<td>&emsp;&emsp;<input type="text" name="eanti_expendtotal"></td>
+	</tr>
+</table>
+<br/>
+<br/>
+14. Details of other R&D Organizations/agencies approached for sponsoring the proposed activity:
+<br/>
+<br/>
+<table style="width:65%">
+	<tr>
+		<th>S.No.</th>
+		<th>Name of the agency/ R&D organization</th>
+		<th>Grant requested</th>
+		<th>Grant received</th>
+		<th>Grant expected</th>
+	</tr>
+	<tr>	
+		<td>1.</td>
+		<td><input type="text" name="rd_name1"></td>
+		<td><input type="text" name="rd_req1"></td>
+		<td><input type="text" name="rd_rec1"></td>
+		<td><input type="text" name="rd_exp1"></td>
+	</tr>
+	<tr>	
+		<td>2.</td>
+		<td><input type="text" name="rd_name2"></td>
+		<td><input type="text" name="rd_req2"></td>
+		<td><input type="text" name="rd_rec2"></td>
+		<td><input type="text" name="rd_exp2"></td>
+	</tr>
+	<tr>	
+		<td>3.</td>
+		<td><input type="text" name="rd_name3"></td>
+		<td><input type="text" name="rd_req3"></td>
+		<td><input type="text" name="rd_rec3"></td>
+		<td><input type="text" name="rd_exp3"></td>
+	</tr>
+</table>
+<br/>
+<br/>
+15.a) Have you received any grant from CSIR during the last 3 years. If yes, give details:
+<br/>
+<br/>
+<table style="width:70%">
+	<tr>
+		<th>S.No.</th>
+		<th>Amount (Rs)</th>
+		<th>CSIR Grant No</th>
+		<th>Conference Title and period</th>
+		<th>Whether audited statement of expenditure/UC has been submitted?</th>
+	</tr>
+	<tr>	
+		<td>1.</td>
+		<td><input type="text" name="csir_amount1"></td>
+		<td><input type="text" name="csir_grant1"></td>
+		<td><input type="text" name="csir_title1"></td>
+		<td><input type="text" name="csir_audit1"></td>
+	</tr>
+	<tr>	
+		<td>2.</td>
+		<td><input type="text" name="csir_amount2"></td>
+		<td><input type="text" name="csir_grant2"></td>
+		<td><input type="text" name="csir_title2"></td>
+		<td><input type="text" name="csir_audit2"></td>
+	</tr>
+	<tr>	
+		<td>3.</td>
+		<td><input type="text" name="csir_amount3"></td>
+		<td><input type="text" name="csir_grant3"></td>
+		<td><input type="text" name="csir_title3"></td>
+		<td><input type="text" name="csir_audit3"></td>
+	</tr>
+</table>
+<br/>
+<br/>
+b) Copy of the audited statement of expenditure/utilization certificate of the <b>LAST GRANT RECEIVED FROM THE CSIR 
+   </b>must be enclosed.<b><em>(Current application will be considered only if the &emsp;&emsp; above documents on all previous grants 
+   have been received by the CSIR HRDG)</em></b>
+<br/>
+<br/>
+16. State the name of the Authority (Director, registrar, Dean or any other designated authority)
+    of society/Institution/organization to whom the grant can be released.<b><u>(Please note that
+    the grant cannot be released to an individual's account)</u></b> <input type="text" name="authority_name">
+
+<br/>
+<br/>
+17. Any other information, which you may like to add:<textarea name="other_info" rows="3" cols="30"  required value="message"  maxlength="100" style="resize:none"></textarea>
+<br/>
+<br/>
+<b>We further declare that the information furnished above is correct and that we have submitted all 
+UCs/Audited statement of expenditure for the support availed from CSIR under this Scheme in the past.</b>
+<br/>
+<br/>
+18. <b>Signatures with Seal:</b>
+<br/>
+<br/>
+<b>Organising Secretary:</b><br/>
+&emsp;&emsp;Name : <input type="text" name="org_sectname"><br/><br/>
+&emsp;&emsp;Mobile : <input type="text" name="org_sectmobile"><br/><br/>
+&emsp;&emsp;Email : <input type="email" name="org_sectemail">
+<br/>
+<br/>
+
+<b>Chairperson of Organising Committee</b><br/>
+&emsp;&emsp;Name : <input type="text" name="org_chairname"><br/><br/>
+&emsp;&emsp;Mobile : <input type="text" name="org_chairmobile"><br/><br/>
+&emsp;&emsp;Email ID : <input type="email" name="org_chairemail">
+<br/>
+<br/>
+
+<b>Head of the Institution / Organisation : </b><br/>
+&emsp;&emsp;Name : <input type="text" name="org_headname"><br/><br/>
+&emsp;&emsp;Mobile : <input type="text" name="org_headmobile"><br/><br/>
+&emsp;&emsp;Email ID : <input type="email" name="org_heademail">
+<br/>
+<br/>
+
+<br/>
+<br/>
+<input type="submit" value="Submit">
+
+    </div>
+	</div>
+	</div>
+	</div>
+{% endblock %}
+
+</body>
+</html>

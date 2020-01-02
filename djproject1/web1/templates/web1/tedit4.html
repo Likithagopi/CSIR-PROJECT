@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CSIR-Finance</title>
+
+	<style>
+
+	   #f11 {
+		    width:100%;
+			padding: 10px ;
+            border: 1px solid black ;
+		}
+
+        #f12 {
+		    width:10%;	
+            position: relative;
+            text-align:center;
+            font-size:20px;
+			font-family:Arial;
+            background-color: rgb(0,30,80);
+            padding: 10px ;
+            border: 1px solid black ;
+			float: top;
+		}
+
+
+	</style>
+
+
+</head>
+
+<body>
+{% extends "web1/travel.html" %}
+
+{% block travel  %}
+
+</br>
+</br>
+</br>
+
+<div id="f11">
+
+<form method="POST" class="post-form" action=" {% url 'updatet4' trav11.id %} " >  
+
+            {% csrf_token %}
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        {% if error_message %}
+                            <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+                        {% endif %}
+
+
+	<h1 style="font-size:100%, font-weight: bold;"><center>COUNCIL OF SCIENTIFIC AND INDUSTRIAL RESEARCH HUMAN RESOURCE DEVELOPMENT GROUP
+		</center></h1>
+	<h1  style="font-size:100%;"><center>
+ 		CSIR COMPLEX OPP INSTITUTE OF HOTEL MANAGEMENT LIBRARY AVENUE, PUSA, NEW DELHI- 110012, INDIA<br>
+		Email: tgsm[at]csirhrdg[dot]res[dot]in<br>
+		Phone:011-25841037
+</center>
+  	</h1>
+	<p><center>Travel Grant Scheme for young Indian researchers (Ph.D. students, Research Associates, 
+                   Resident  Doctors, etc.), Emeritus Scientists / other non-regular researchers for
+                   participation in International Scientific events abroad 
+	</center></p>
+
+<br/>
+<h2 style="font-size:110%;"><center>TOUR REPORT PROFORMA (<u>To be filled by the applicant and submitted in duplicate</u>)
+                            </center></h2>
+<br/>
+<br/>
+
+1. Name of the applicant:&emsp;<input type="text" name="applicant" value="{{trav11.applicant}}">
+<br/>
+<br/>
+2. Designation:&emsp;<input type="text" name="designation" value="{{trav11.designation}}">
+<br/>
+<br/>
+3. Place of Work :
+<br/>
+<br/>
+&emsp;&emsp;Department : <input type="text" name="work_dept" value="{{trav11.work_dept}}"> &emsp;
+Institute : <input type="text" name="work_institute" value="{{trav11.work_institute}}">&emsp;
+<br/>
+<br/>
+&emsp;&emsp;City : <input type="text" name="work_city"  value="{{trav11.work_city}}">&emsp;
+State : <input type="text" name="work_state" value="{{trav11.work_state}}">
+PIN : <input type="text" name="work_pin" value="{{trav11.work_pin}}">
+<br/>
+<br/>
+&emsp;&emsp;Contact No with STD code : <select id="std" name="std" >
+                                        <option value="+91">+91 </option>
+                                        <option value="+672">+672</option>
+                                        <option value="+60">+60</option>
+										<option value="+960">+960</option>
+                                        </select>&emsp;
+Mobile : <input type="text" name="mobile" value="{{trav11.mobile}}">&emsp;
+Email : <input type="email" name="email" value="{{trav11.email}}">
+<br/>
+<br/>
+4. Name of Scientific Event: <input type="text" name="event" value="{{trav11.event}}">
+<br/>
+<br/>
+5. Venue of Scientific Event: <input type="text" name="venue" value="{{trav11.venue}}">
+<br/>
+<br/>
+6. Period of the Scientific Event: From &emsp;<input type="date" name="start_date" value="{{trav11.start_date}}">&emsp;  
+							    to &emsp;<input type="date" name="end_date" value="{{trav11.end_date}}">
+<br/>
+<br/>
+7. Duration of Stay: From &emsp;<input type="date" name="checkin_date" value="{{trav11.checkin_date}}">&emsp;  
+							    to &emsp;<input type="date" name="checkout_date"  value="{{trav11.checkout_date}}">
+<br/>
+<br/>
+&emsp; &emsp; (Date of leaving the country and return  : From &emsp;<input type="date" name="out_date" value="{{trav11.out_date}}">&emsp;  
+							    to &emsp;<input type="date" name="in_date"   value="{{trav11.in_date}}"> )
+
+<br/>
+<br/>
+
+8. Indicate specific ideas or knowledge acquired or frontiers in knowledge gained during your visit: 
+								<input type=textarea name="ideas" rows="3" cols="30"  value="{{trav11.ideas}}"  maxlength="100" style="resize:none"></textarea>
+<br/>
+<br/>
+
+9. Highlights of event/findings reported and recommendations : <input type=textarea name="highlights" rows="3" cols="30"   value="{{trav11.highlights}}"  maxlength="100" style="resize:none"></textarea>
+<br/>
+<br/>
+10. Name of other scientists from India who participated with their address : 
+							<input type=textarea name="scientists" rows="5" cols="50"  value="{{trav11.scientists}}" maxlength="100" style="resize:none"></textarea>
+<br/>
+<br/>
+
+11. Whether any linkage has been built between the scientist and foreign scientists and,
+      if so their names and institutions : <input type=textarea name="linkage" rows="3" cols="30"  value="{{trav11.linkage}}"  maxlength="100" style="resize:none"></textarea>
+<br/>
+<br/>
+
+12. Any other observations :<input type=textarea name="observations" rows="3" cols="30"  value="{{trav11.observations}}"  maxlength="100" style="resize:none"></textarea>
+
+<br/>
+<br/>
+
+<button type="submit" class="btn btn-success" >Update</button>
+
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
+</body>
+</html>

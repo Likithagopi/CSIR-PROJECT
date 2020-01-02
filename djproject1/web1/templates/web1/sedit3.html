@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CSIR-Symposium</title>
+
+	<style>
+
+	    table,td,th
+		    {
+			border:1px solid black;
+			width:33%;
+			text-align:center;
+			
+			border-collapse:collapse;
+		    }
+	
+	   input {text-align:right;}
+
+	   #f11 {
+		    width:100%;
+			padding: 10px ;
+            border: 1px solid black ;
+		}
+
+        #f12 {
+		    width:10%;	
+            position: relative;
+            text-align:center;
+            font-size:20px;
+			font-family:Arial;
+            background-color: rgb(0,30,80);
+            padding: 10px ;
+            border: 1px solid black ;
+			float: top;
+		}
+
+	</style>
+</head>
+<body>
+
+{% extends "web1/symposium.html" %}
+{% block symposium%}
+</br>
+</br>
+
+<div id="f12"><a href="{% url 'symposium3' %}" style="text-decoration:none; color: white;">Add</a></div>
+</br>
+
+<div id="f11">
+
+    <div class="container">
+<form method="POST" class="post-form" action=" {% url 'updates3' symp11.id %} " > 
+            {% csrf_token %}
+                <div class="panel panel-default">
+                    
+                    <div class="panel-body">
+                        {% if error_message %}
+                            <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+                        {% endif %}
+
+
+	<h1 style="font-size:100%, font-weight: bold;"><center>COUNCIL OF SCIENTIFIC AND INDUSTRIAL RESEARCH HUMAN RESOURCE DEVELOPMENT GROUP
+		</center></h1>
+	<h1  style="font-size:100%;"><center>
+ 		CSIR COMPLEX OPP INSTITUTE OF HOTEL MANAGEMENT LIBRARY AVENUE, PUSA, NEW DELHI- 110012, INDIA<br>
+		Email: tgsm[at]csirhrdg[dot]res[dot]in<br>
+		Phone:011-25841037
+</center>
+  	</h1>
+	<p><center>Symposia Grant Scheme for Organising Scientific Events (Symposia/ Seminars / Conferences/ 
+              workshops, etc.) within India	
+	</center></p>
+<br/>
+<h2 style="font-size:110%;"><center><b>GRANT-IN-AID BILL (<u>To be filled by the applicant in duplicate</u>)
+                            </b></center></h2>
+<br/>
+<br/>
+<b>To:	Head, HRD Group, CSIR Complex, Pusa, New Delhi-110012</b>
+<br/>
+<br/>
+<b>Reference: CSIR Sanction No: SYM/ <input type="text" name="id1"> / <input type="text" name="id2"> -HRD </b>
+<br/>
+<br/>
+<br/>
+1. Name of the Organisation under whose auspices the Event was organized : <input type="text" name="organisation_name" value="{{symp11.organisation_name}}">
+<br/>
+<br/>
+2. Title/Name of the Event : <input type="text" name="event_name">
+<br/>
+<br/>
+3. Venue of the Event (Address) : <input type=textarea name="venue" rows="3" cols="30"  value="{{symp11.venue}}"  maxlength="100" style="resize:none"></textarea>
+
+<br/>
+<br/>
+4. Period : From &emsp;<input type="date" name="start_date" value="{{symp11.start_date}}">&emsp;  
+	    to &emsp;<input type="date" name="end_date" value="{{symp11.end_date}}">
+<br/>
+<br/>
+5. Brief report (highlights) of the Scientific Event (Less than 1000 words- Attach separate sheet)
+<br/>
+<br/>
+6. (a) Grant Sanctioned: Rs.<input type="text" name="grant_amount" value="{{symp11.grant_amount}}">
+	 <br/>
+	 <br/>
+   &emsp;(b) Total Actual Expenditure: Rs.<input type="text" name="actual_amount" value="{{symp11.actual_amount}}">
+	 <br/>
+	 <br/>
+   &emsp;(c) Actual expenditure as per Attached Audited Statement of Expenditure for claim from CSIR: Rs.<input type="text" name="claim_amount" value="{{symp11.claim_amount}}">
+<br/>
+<br/>
+7.  Pls choose the name of the authority to whom the NEFT payment is to be made:
+<br/>
+<br/>
+
+<table style="width:65%">
+	<tr>
+		<th>S.NO </th>
+		<th>Authority:</th>
+		<th>Mark:</th>
+	</tr>
+	<tr>	
+		<td>&emsp;1</td>
+		<td>Director</td>
+		<td><input type="radio" name="authority" value="director"></td>
+	</tr>
+	<tr>	
+		<td>&emsp;2</td>
+		<td>Registrar</td>
+		<td><input type="radio" name="authority" value="registrar"></td>
+	</tr>
+	<tr>	
+		<td>&emsp;3</td>
+		<td>Dean</td>
+		<td><input type="radio" name="authority" value="dean"></td>
+	</tr>
+	<tr>	
+		<td>&emsp;4</td>
+		<td>Finance Officer</td>
+		<td><input type="radio" name="authority" value="finance officer"></td>
+	</tr>
+	<tr>	
+		<td>&emsp;5</td>
+		<td>Medical Superintendent</td>
+		<td><input type="radio" name="authority" value="medical superintendent"></td>
+	</tr>
+	<tr>	
+		<td>&emsp;6</td>
+		<td>Principal</td>
+		<td><input type="radio" name="authority" value="principal"></td>
+	</tr>
+	<tr>	
+		<td>&emsp;7</td>
+		<td>Any Other Authority designated by your Organization/Institute
+		    (Kindly specify<input type="text" name="other">)	</td>
+		<td><input type="radio" name="authority" value="other"></td>
+	</tr>
+
+	</table>
+
+<br/>
+
+<p><b><u>
+Note : Grant will be released in the account of Society /Institution /Organization only
+</u>
+<br/>
+<br/>
+Certified that the amount claimed in this bill was utilized for the purpose for which it has been sanctioned,
+and  the Audited Statement of Expenditure  is enclosed as per requirement.
+</b></p>
+<br/>
+<br/>
+<br/>
+<b><u>Organizer:</u></b><br/>
+&emsp;&emsp;Name : <input type="text" name="org_name" value="{{symp11.org_name}}"><br/><br/>
+&emsp;&emsp;Designation : <input type="text" name="org_desig" value="{{symp11.org_desig}}"><br/><br/>
+&emsp;&emsp;Address : <input type=textarea name="org_add" rows="3" cols="30"  value="{{symp11.org_add}}"  maxlength="100" style="resize:none"></textarea>
+&emsp;&emsp;City : <input type="text" name="org_city" value="{{symp11.org_city}}"> &emsp;
+            State : <input type="text" name="org_state" value="{{symp11.org_state}}">&emsp;
+	    PIN : <input type="text" name="org_pin" value="{{symp11.org_pin}}"><br/><br/>
+&emsp;&emsp;Mobile : <input type="number" name="org_mobile" value="{{symp11.org_mobile}}"><br/><br/>
+&emsp;&emsp;Email ID : <input type="email" name="org_email" value="{{symp11.org_email}}">
+<br/>
+<br/>
+
+<b><u>Head of the Organisation (Place of Event):</u> </b><br/><br/>
+&emsp;&emsp;Name : <input type="text" name="head_name" value="{{symp11.head_name}}"><br/><br/>
+&emsp;&emsp;Designation : <input type="text" name="head_desig" value="{{symp11.head_desig}}"><br/><br/>
+&emsp;&emsp;Address : <input type=textarea name="head_add" rows="3" cols="30"  value="{{symp11.head_add}}"  maxlength="100" style="resize:none"></textarea>
+&emsp;&emsp;City : <input type="text" name="head_city" value="{{symp11.head_city}}"> &emsp;
+            State : <input type="text" name="head_state" value="{{symp11.head_state}}">&emsp;
+	    PIN : <input type="text" name="head_pin" value="{{symp11.head_pin}}"><br/><br/>
+&emsp;&emsp;Mobile : <input type="number" name="head_mobile" value="{{symp11.head_mobile}}"><br/><br/>
+&emsp;&emsp;Email ID : <input type="email" name="head_email" value="{{symp11.head_email}}">
+<br/>
+<br/>
+
+<br/>
+<br/>
+<button type="submit" class="btn btn-success" >Update</button> 
+
+
+    </div>
+	</div>
+	</div>
+	</div>
+{% endblock %}
+
+</body>
+</html>

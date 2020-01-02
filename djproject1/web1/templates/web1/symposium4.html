@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CSIR-Symposium</title>
+
+	<style>
+	    table,td,th
+		    {
+			border:1px solid black;
+			width:33%;
+			text-align:center;
+			border-collapse:collapse;
+		    }
+	
+	    input {text-align:right;}
+
+	    #f11 {
+		    width:100%;
+			padding: 10px ;
+            border: 1px solid black ;
+		}
+
+        #f12 {
+		    width:10%;	
+            position: relative;
+            text-align:center;
+            font-size:20px;
+			font-family:Arial;
+            background-color: rgb(0,30,80);
+            padding: 10px ;
+            border: 1px solid black ;
+			float: top;
+		}
+
+	</style>
+</head>
+<body>
+
+{% extends "web1/symposium.html" %}
+{% block symposium %}
+</br>
+</br>
+
+<div id="f12"><a href="{% url 'symposium4' %}" style="text-decoration:none; color: white;">Add</a></div>
+</br>
+
+<div id="f11">
+
+    <div class="container">
+        <form action="{% url 'symposium4' %}" method="post">
+            {% csrf_token %}
+                <div class="panel panel-default">
+                  
+                    <div class="panel-body">
+                        {% if error_message %}
+                            <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+                        {% endif %}
+
+
+	<h1 style="font-size:100%, font-weight: bold;"><center>COUNCIL OF SCIENTIFIC AND INDUSTRIAL RESEARCH HUMAN RESOURCE DEVELOPMENT GROUP
+		</center></h1>
+	<h1  style="font-size:100%;"><center>
+ 		CSIR COMPLEX OPP INSTITUTE OF HOTEL MANAGEMENT LIBRARY AVENUE, PUSA, NEW DELHI- 110012, INDIA<br>
+		Email: tgsm[at]csirhrdg[dot]res[dot]in<br>
+		Phone:011-25841037
+</center>
+  	</h1>
+	<p><center>Symposia Grant Scheme for Organising Scientific Events (Symposia/ Seminars / Conferences/ 
+              workshops, etc.) within India	
+	</center></p>
+<br/>
+<h2 style="font-size:110%;"><center><b>AUDITED STATEMENT OF EXPENDITURE (<u>To be filled by the applicant in duplicate</u>)
+                                                  </b></center></h2>
+<br/>
+<br/>
+<b>Reference: CSIR Sanction No: SYM/ <input type="text" name="id"> / <input type="text" name="id"> -HRD </b>
+<br/>
+<br/>
+1. Name of the Society / Organisation under whose auspices the Event was organized : <input type="text" name="society_name">
+<br/>
+<br/>
+2. Title/Name of the Event : <input type="text" name="event_name">
+<br/>
+<br/>
+3. Period : From &emsp;<input type="date" name="start_date">&emsp;  
+	    to &emsp;<input type="date" name="end_date">
+<br/>
+<br/>
+4. Grant Sanctioned: Rs.<input type="number" name="grant_amount">
+<br/>
+<br/>
+5. Certified that out of Total Expenditure of Rs.<input type="number" name="expenditure_amount"></br>
+<br/>
+&emsp;CSIR Grant of Rs.<input type="text" name="csir_grant"></br>
+<br/>
+&emsp;has been utilized as per the details given below:
+<br/>
+<br/>
+
+
+<table style="width:65%">
+	<tr>
+		<th>S.No. </th>
+		<th>      </th>
+		<th>Amount (Rs):</th>
+	</tr>
+	<tr>	
+		<td>1.</td>
+		<td>Travel Expenses for<br/>
+		&emsp;	c.   Senior scientists:<br/>
+		&emsp;	d.   Young Scientists :
+		</td>
+		<td>&emsp;&emsp;<input type="text" name="senior_amount"><br/>
+		    &emsp;&emsp;<input type="text" name="young_amount">
+		</td>
+	</tr>
+	<tr>	
+		<td>2.</td>
+		<td>Registration Fee Waiver<br/>
+		&emsp;	c.   Senior scientists:<br/>
+		&emsp;	d.   Young Scientists :
+		</td>
+		<td>&emsp;&emsp;<input type="text" name="senior_regist"><br/>
+		    &emsp;&emsp;<input type="text" name="young_regist">
+		</td>
+	</tr>
+	<tr>	
+		<td>3.</td>
+		<td>Promotion (web site, brochures, others):</td>
+		<td>&emsp;&emsp;<input type="text" name="promo_fee"></td>
+	</tr>
+	<tr>	
+		<td>4.</td>
+		<td>Secretarial assistance</td>
+		<td>&emsp;&emsp;<input type="text" name="assist_fee"></td>
+	</tr>
+	<tr>	
+		<td>5.</td>
+		<td>Local Hospitality</td>
+		<td>&emsp;&emsp;<input type="text" name="hospitality"></td>
+	</tr>
+	<tr>	
+		<td>6.</td>
+		<td>Venue Charges</td>
+		<td>&emsp;&emsp;<input type="text" name="venue_fee"></td>
+	</tr>
+	<tr>	
+		<td> </td>
+		<td><b>TOTAL</b></td>
+		<td>&emsp;&emsp;<input type="text" name="expendtotal"></td>
+	</tr>
+</table>
+<br/>
+<br/>
+<b>Certified by: </b>
+<br/>
+<br/>
+
+<b>Organizer:  </b><br/>
+&emsp;&emsp;Name : <input type="text" name="org_name"><br/><br/>
+&emsp;&emsp;Designation : <input type="text" name="org_desig"><br/><br/>
+&emsp;&emsp;Mobile : <input type="number" name="org_mobile"><br/><br/>
+&emsp;&emsp;Email ID : <input type="email" name="org_email">
+<br/>
+<br/>
+
+<b>Finance Officer/ Chartered Accountant:  </b><br/>
+&emsp;&emsp;Name : <input type="text" name="fin_name"><br/><br/>
+&emsp;&emsp;Mobile : <input type="number" name="fin_mobile"><br/><br/>
+&emsp;&emsp;Email ID : <input type="email" name="fin_email">
+<br/>
+<br/>
+
+<b>Head of Organisation:  </b><br/>
+&emsp;&emsp;Name : <input type="text" name="head_name"><br/><br/>
+&emsp;&emsp;Designation : <input type="text" name="head_desig"><br/><br/>
+&emsp;&emsp;Mobile : <input type="number" name="head_mobile"><br/><br/>
+&emsp;&emsp;Email ID : <input type="email" name="head_email">
+<br/>
+<br/>
+
+<br/>
+<br/>
+<input type="submit" value="Submit">
+
+    </div>
+	</div>
+	</div>
+	</div>
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>CSIR</title>
+      <meta charset="UTF-8">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+   <style>
+
+	        #f {
+                display: flex;
+                justify-content: center;
+                }
+
+			#f1 {
+		         width:100%;
+                 top: 50%;
+                 position: relative;
+                 text-align:left;
+                 color: white;
+				 font-size:20px;
+				 font-style:bold;
+				 font-family:Arial;
+                 border-collapse:collapse;
+				 background-color: rgb(0,30,80);
+                 padding: 10px ;
+                 border: 1px solid black ;
+			     float: top;
+		         }
+
+		    #f2 { 
+                 width:10%;
+				 right: 3%;
+                 position: relative;
+                 text-align:center;
+                 color: black;
+				 font-size: 30px  ;
+				 font-family:Arial;
+                 border-collapse:collapse;
+				 background-color:rgb(0,30,80);
+                 padding: 20px ;
+                 border: 1.5px solid black ;
+				 float: center;
+				  }
+
+		    #f3 { 
+                 width:10%;
+				 height:10%;
+				 left: 5.5%;
+                 position: relative;
+                 text-align: center;
+                 color: black;
+				 font-size: 30px  ;
+				 font-family:Arial;
+                 border-collapse:collapse;
+				 background-color:rgb(0,30,80);
+                 padding: 20px ;
+                 border: 1.5px solid black ;
+				 float: center;
+				 }
+
+			#f4 { 
+                 width:13%;
+				 height:10%;
+				 left: 44%;
+                 position: relative;
+                 text-align:center;
+                 color: black;
+				 font-size: 30px  ;
+				 font-family:Arial;
+                 border-collapse:collapse;
+				 background-color:rgb(0,30,80);
+                 padding: 20px ;
+                 border: 1.5px solid black ;
+				 float: center;
+				 }
+
+   </style>
+
+</head>
+  <body>
+
+    <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+    <div class="jumbotron">
+
+  </br>
+
+        <div id="f1"><a href="{% url 'index1' %}"><i class="material-icons" style=" font-size:35px; color:white;">&emsp;home</i></a>
+        {% if user.is_authenticated %}
+	    <lable style="font-size:40px; ">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>Welcome to CSIR</b></lable>
+        <lable>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Hi {{ user.username }}!</lable>
+		<lable>&emsp;<a href="{% url 'user_logout' %}" style="color:white; text-decoration:none">Logout</a></lable></div>
+		</br></br></br></br></br></br>
+
+		<div id="f">
+		<div id="f2"><lable><a  href="{% url 'viewf' %}" style="color:white; text-decoration:none "> Finance </a></lable></div>
+		<div id="f3"><lable><a  href="{% url 'viewt1' %}" style="color:white; text-decoration:none; " > Travel </a></lable></div></div></br></br>
+		<div id="f4"><a  href="{% url 'views1' %}" style="color:white; text-decoration:none; "> Symposium </a></div>
+		
+    {% else %}
+        <h2>Register or Login if you'd like to</h2>
+    {% endif %}
+
+</div>
+</div>
+
+</body>
+</html>

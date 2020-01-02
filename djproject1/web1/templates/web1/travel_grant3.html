@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CSIR-Travel</title>
+ 
+	    <style>
+
+		       table,tr,td,th{ 
+                  border: 1px solid black;
+                  width:33%;
+                  text-align:center;
+                  backgroud-color:white;
+                  border-collapse:collapse; 
+                   }
+       input{text-align:right;}
+
+
+	   #f11 {
+		    width:100%;
+			padding: 10px ;
+            border: 1px solid black ;
+		}
+
+        #f12 {
+		    width:10%;	
+            position: relative;
+            text-align:center;
+            font-size:20px;
+			font-family:Arial;
+            background-color: rgb(0,30,80);
+            padding: 10px ;
+            border: 1px solid black ;
+			float: top;
+		}
+
+	</style>
+</head>
+<body>
+
+{% extends "web1/travel.html" %}
+{% block travel %}
+</br>
+</br>
+
+<div id="f12"><a href="{% url 'travel_grant3' %}" style="text-decoration:none; color: white;">Add</a></div>
+</br>
+
+<div id="f11">
+
+    <div class="container">
+        <form action="{% url 'travel_grant3' %}" method="post">
+            {% csrf_token %}
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        {% if error_message %}
+                            <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+                        {% endif %}
+
+
+	<h1 style="font-size:100%, font-weight: bold;"><center>COUNCIL OF SCIENTIFIC AND INDUSTRIAL RESEARCH HUMAN RESOURCE DEVELOPMENT GROUP
+		</center></h1>
+	<h1  style="font-size:100%;"><center>
+ 		CSIR COMPLEX OPP INSTITUTE OF HOTEL MANAGEMENT LIBRARY AVENUE, PUSA, NEW DELHI- 110012, INDIA<br>
+		Email: tgsm[at]csirhrdg[dot]res[dot]in<br>
+		Phone:011-25841037
+</center>
+  	</h1>
+	<p><center>Travel Grant Scheme for young Indian researchers (Ph.D. students, Research Associates, 
+                   Resident  Doctors, etc.), Emeritus Scientists / other non-regular researchers for
+                   participation in International Scientific events abroad 
+	</center></p>
+<br/>
+<h2 style="font-size:110%;"><center>GRANT-IN-AID BILL (<u>To be filled by the applicant and submitted in duplicate</u>)
+                                                  </center></h2>
+<br/>
+<br/>
+
+
+1. Name of the candidate:&emsp;<input type="text" name="name">
+<br/>
+<br/>
+2. Complete Address of the candidate:  :<textarea name="address" rows="3" cols="30"  required value="address1"  maxlength="100" style="resize:none"></textarea>
+<br/>
+<br/>
+&emsp;&emsp;City : <input type="text" name="city"> &emsp;
+State : <input type="text" name="state">&emsp;
+PIN : <input type="text" name="pin">
+<br/>
+<br/>
+&emsp;&emsp;Contact (with STD code)   : <select id="std" name="std" >
+                                        <option value="+91">+91 </option>
+                                        <option value="+672">+672</option>
+                                        <option value="+60">+60</option>
+										<option value="+960">+960</option>
+                                        </select>&emsp;
+Mobile : <input type="phone" name="mobile">&emsp;
+Email : <input type="email" name="email">
+<br/>
+<br/>
+3. Name of Conference/Symposium etc : <input type="text" name="type1">
+<br/>
+<br/>
+4. Venue of Conference/Symposium etc : <input type="text" name="venue">
+<br/>
+<br/>
+5. Period of the Symposium/Seminar/Conference/Workshop etc: From &emsp;<input type="date" name="date_from">&emsp;  
+							    to &emsp;<input type="date" name="date_to">
+<br/>
+<br/>
+6. Grant Sanctioned:<b> 50% Air Fare (maximum of Rs 30,000/-) OR Amount</b>  Rs- <input type="text" name="amount">
+<br/>
+<br/>
+7. Details of financial support <b>(in Indian Rupees)</b>:
+<br/>
+<br/>
+
+<table style="width:55%;" >
+
+
+	<tr>
+
+		<th style="text-align:left";> Name of the Organization </th>
+		<th>Air Fare Sanctioned(in Indian Rupees):</th>
+		<th>Air Fare Expenditure(in Indian Rupees):</th>
+	</tr>
+	<tr>	
+                <th style="text-align:left";>CSIR</th>
+	        <td><input type="text" name="csirs" style="width:98%;"></td>
+		<td><input type="text" name="csire" style="width:98%;"></td>
+	</tr>
+	<tr>	
+		<th style="text-align:left";>DST</th>
+		<td><input type="text" name="dsts" style="width:98%"></td>
+		<td><input type="text" name="dste" style="width:98%"></td>
+	</tr>
+	<tr>	
+		<th style="text-align:left"; >ICMR</th>
+		<td><input type="text" name="icmrs" style="width:98%"></td>
+		<td><input type="text" name="icmre" style="width:98%"></td>
+	</tr>
+	<tr>	
+		<th style="text-align:left";>Host Org.</th>
+		<td><input type="text" name="hosts" style="width:98%"></td>
+		<td><input type="text" name="hoste" style="width:98%"></td>
+	</tr>
+	<tr>	
+		<th style="text-align:left";>Parent Org.</th>
+		<td><input type="text" name="parents" style="width:98%"></td>
+		<td><input type="text" name="parente" style="width:98%"></td>
+	</tr>
+	<tr>	
+		<th style="text-align:left";>Others if any</th>
+		<td><input type="text" name="others" style="width:98%"></td>
+		<td><input type="text" name="othere"  style="width:98%"></td>
+	</tr>
+	</table>
+
+<br/>
+<br/>
+8. Mode of Travel:
+<br/>
+&emsp;&emsp;(i) Whether traveled by Air India: (Pl select) <input type="radio" name="airlines" required value="yes">YES
+						&emsp;&emsp;<input type="radio" name="airlines" value="no">NO
+<br/>
+<br/>
+&emsp;&emsp;(ii) If no in 8(i) above, the name of the Airline by which traveled : <input type="text" name="flight">
+<br/>
+<br/>
+&emsp;&emsp;(iii) State also the reason why this deviation was necessary : <input type="text" name="reason">
+<br/>
+<br/>
+9. Pl choose the name of the authority to whom the NEFT payment is to be made:
+<br/>
+<br/>
+
+<table style="width:55%;" >
+	<tr>
+		<th>Sl.No </th>
+		<th>Authority:</th>
+		<th>Mark:</th>
+	</tr>
+	<tr>	
+		<td>1</td>
+		<td>Director</td>
+		<td><input type="radio" name="authority" required value= ""></td>
+	</tr>
+	<tr>	
+		<td>2</td>
+		<td>Registrar</td>
+		<td><input type="radio" name="authority"  value=""></td>
+	</tr>
+	<tr>	
+		<td>3</td>
+		<td>Dean</td>
+		<td><input type="radio" name="authority"  value=""></td>
+	</tr>
+	<tr>	
+		<td>4</td>
+		<td>Finance Officer</td>
+		<td><input type="radio" name="authority" value=""></td>
+	</tr>
+	<tr>	
+		<td>5</td>
+		<td>Medical Superintendent</td>
+		<td><input type="radio" name="authority" value=""></td>
+	</tr>
+	<tr>	
+		<td>6</td>
+		<td>Principal</td>
+		<td><input type="radio" name="authority" value=""></td>
+	</tr>
+	<tr>	
+		<td>7</td>
+		<td>Others if Any</br>
+		    (Kindly specify<input type="text" name="other">)	</td>
+		<td><input type="radio" name="authority" value="other"></td>
+	</tr>
+
+	</table>
+
+<br/>
+
+<p><b><u>
+Note : Grant will be released in the account of Institution /Organization only
+</u></b></p>
+
+<br/>
+<br/>
+
+<input type="submit" value="Submit">
+
+    </div>
+	</div>
+	</div>
+	</div>
+{% endblock %}
+
+</body>
+</html>

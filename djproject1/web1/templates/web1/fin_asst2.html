@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CSIR-Finance</title>
+	
+ <style>
+       table,tr,td,th{ 
+                  border: 1.5px solid black;
+                   width:33%;
+                  text-align:center;
+                   backgroud-color:white;
+                   border-collapse:collapse; 
+				  }
+       input{text-align:right;}
+	   	     
+	   #f11 {
+		    width:100%;
+			padding: 10px ;
+            border: 1px solid black ;
+		}
+
+        #f12 {
+		    width:10%;	
+            position: relative;
+            text-align:center;
+            font-size:20px;
+			font-family:Arial;
+            background-color: rgb(0,30,80);
+            padding: 10px ;
+            border: 1px solid black ;
+			float: top;
+		}
+
+
+ </style>
+</head>
+
+<body>
+{% extends "web1/finance.html" %}
+
+{% block finance  %}
+</br>
+</br>
+
+<div id="f12"><a href="{% url 'fin_asst2' %}" style="text-decoration:none; color: white;">Add</a></div>
+</br>
+
+<div id="f11">
+
+    <div class="container">
+        <form action="{% url 'fin_asst2' %}" method="post">
+            {% csrf_token %}
+                <div class="panel panel-default">
+                    
+
+                    <div class="panel-body">
+                        {% if error_message %}
+                            <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+                        {% endif %}
+
+
+	<h1 style="font-size:100%, font-weight: bold;"><center>COUNCIL OF SCIENTIFIC AND INDUSTRIAL RESEARCH HUMAN RESOURCE DEVELOPMENT GROUP
+		</center></h1>
+	<h1  style="font-size:100%;"><center>
+ 		CSIR COMPLEX OPP INSTITUTE OF HOTEL MANAGEMENT LIBRARY AVENUE, PUSA, NEW DELHI- 110012, INDIA<br>
+		Email: tgsm[at]csirhrdg[dot]res[dot]in<br>
+		Phone:011-25841037
+</center>
+  	</h1>
+	<p><center>Partial Financial Assistance (PFA) Scheme for Indian regular employees
+   		(Non-CSIR) for participation in International scientific events abroad 
+	</center></p>
+
+<br/>
+<h2 style="font-size:110%;"><center><u>MAIN APPLICATION</u></center></h2>
+<br/>
+<br/>
+
+1. Full name :&emsp;<input type="radio" name="prefix" value="Dr">Dr
+<input type="radio" name="prefix" value="Mr">Mr
+<input type="radio" name="prefix" value="Ms">Ms
+&nbsp;&nbsp;<input type="text" name="firstname">
+<input type="text" name="lastname">
+<p>&emsp;(In CAPITAL letters) &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;First Name &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Last Name</p>
+<br/>
+2. Date Of Birth  :&emsp;<input type="date" name="dob">
+<br/>
+<br/>
+3. Gender : <input type="radio" name="gender" value="M">Male
+	    <input type="radio" name="gender" value="F">Female
+<br/>
+<br/>
+4. Nationality : &emsp;<input type="text" name="nationality"> 
+<br/>
+<br/>
+5. Designation / Current Affiliation : &emsp;<input type="text" name="designation"> 
+<br/>
+<br/>
+6. Applicants address for Communication : &emsp;<textarea name="address" rows="3" cols="30"  required value="message"  maxlength="100" style="resize:none"></textarea>
+<br/>
+<br/>
+&emsp;&emsp;City : <input type="text" name="city"> &emsp;
+State : <input type="text" name="state">&emsp;
+PIN : <input type="text" name="pin">
+<br/>
+<br/>
+&emsp;&emsp;Contact No with STD code :<select id="std" name="std" >
+                                        <option value="+91">+91 </option>
+                                        <option value="+672">+672</option>
+                                        <option value="+60">+60</option>
+										<option value="+960">+960</option>
+                                        </select>&emsp;
+Mobile : <input type="text" name="mobile">&emsp;
+Email : <input type="email" name="email">
+<br/>
+<br/>
+7. Place of Work :
+<br/>
+<br/>
+&emsp;&emsp;Dept : <input type="text" name="work_dept"> &emsp;
+Institute : <input type="text" name="work_institute">&emsp;
+<br/>
+<br/>
+&emsp;&emsp;City : <input type="text" name="work_city">&emsp;
+State : <input type="text" name="work_state">
+PIN : <input type="text" name="work_pin">
+<br/>
+<br/>
+8. HOD Details : &emsp;
+Name : <input type="text" name="hod_name"> &emsp;
+<br/>
+<br/>
+&emsp;&emsp;Contact No with STD code : <select id="std" name="std" >
+                                        <option value="+91">+91 </option>
+                                        <option value="+672">+672</option>
+                                        <option value="+60">+60</option>
+										<option value="+960">+960</option>
+                                        </select>&emsp;
+Mobile : <input type="text" name="hod_mobile">&emsp;
+Email : <input type="email" name="hod_email">
+<br/>
+<br/>
+9. Educational qualifications:
+
+<br/>
+<br/>
+	<table style="width:65%">
+	<tr>
+		<th>Degree </th>
+		<th style="width:65%;">University / Institute</th>
+		<th>Year of Passing/Expected Completion Date</th>
+		<th>%age of Marks</th>
+		<th>Division</th>
+	</tr>
+	<tr>	
+		<td style="text-align:left;" >1. 
+                                 <input type="radio" name="degree" value="M.sc">M Sc /</br>
+			   &emsp;<input type="radio" name="degree" value="MBBS">MBBS /</br>
+			   &emsp;<input type="radio" name="degree" value="BE">BE /</br>
+			   &emsp;<input type="radio" name="degree" value="B pharma">B Pharma
+			
+		</td>
+
+		<td>&emsp;&emsp;<input type="text" name="name1" style="width:98%;"></td>
+		<td>&emsp;&emsp;<input type="date" name="date1" style="width:98%;"></td>
+		<td>&emsp;&emsp;<input type="number" name="percentage1" style="width:98%;"></td>
+		<td>&emsp;&emsp;<input type="text" name="division1" ></td>
+	</tr>
+	<tr>	
+		<td style="text-align:left;">2.
+                              <input type="radio" name="degree1" value="PhD">PhD / </br>
+			&emsp;<input type="radio" name="degree1" value="MD">MD / </br>
+			&emsp;<input type="radio" name="degree1" value="ME">ME / </br>
+			&emsp;<input type="radio" name="degree1" value="M pharma">M Pharma
+			
+		</td>
+		<td>&emsp;&emsp;<input type="text" name="name2" style="width:98%;"></td>
+		<td>&emsp;&emsp;<input type="date" name="date2" ></td>
+		<td>&emsp;&emsp;<input type="number" name="percentage2" ></td>
+		<td>&emsp;&emsp;<input type="text" name="division2" ></td>
+	</tr>
+
+	<tr>	
+		<td style="text-align:left;">3.&emsp;Others</br>&emsp;
+                                                (if any)</br>&emsp;<input type="text" name="others" value="others"></td>
+		<td>&emsp;&emsp;<input type="text" name="name3" style="width:98%;" ></td>
+		<td>&emsp;&emsp;<input type="date" name="date3" ></td>
+		<td>&emsp;&emsp;<input type="number" name="percentage3" ></td>
+		<td>&emsp;&emsp;<input type="text" name="division3" ></td>
+	</tr>
+	</table>
+<br/>
+<br/>
+<br/>
+10. Field of Specialization:&emsp;<input type="text" name="Specification">
+<br/>
+<br/>
+11.Indicate your Basic Pay/Salary per month Rs. :  &emsp;<input type="text" name="basic_salary">
+<br/>
+<br/>
+12. Name of Scientific Event (Conference/Symposium/Workshop/Training/etc) :&emsp; <input type="text" name="event">
+<br/>
+<br/>
+13. Venue (City/ Country) : &emsp;<input type="text" name="venue"> 
+<br/>
+<br/>
+14. Dates  : From &emsp;<input type="date" name="start_date">&emsp;  to &emsp;<input type="date" name="end_date">
+<br/>
+<br/>
+15. Major discipline in which it falls (Pl select)
+<br/>
+<br/>
+<input type="radio" name="discipline" value="chemical">Chemical Sciences
+&emsp;<input type="radio" name="discipline" value="life">Life Sciences
+&emsp;<input type="radio" name="discipline" value="engg">Engineering
+&emsp;<input type="radio" name="discipline" value="math">Mathematical Sciences 
+<br/>
+<br/>
+<input type="radio" name="discipline" value="physical">Physical Sciences
+&emsp;<input type="radio" name="discipline" value="environment">Earth Environment, Ocean and Atmospheric Sciences 
+<br/>
+<br/>
+<input type="radio" name="discipline" value="medical">Medical Sciences
+&emsp;<input type="radio" name="discipline" value="multiple">Multi-disciplinary
+&emsp;<input type="radio" name="discipline" value="information"> IT/ITES/Information Sciences
+<br/>
+<br/>
+16. Whether Presenting  a research paper:&emsp;<input type="radio" name="paper" value="oral">ORAL
+    &emsp;<input type="radio" name="paper" value="poster">POSTER
+    &emsp;<input type="radio" name="paper" value="worhshop">Workshop/Training
+<br/>
+<br/>
+17. Purpose of visit & its possible impact in the Indian context:<input type="text" name="purpose">
+<br/>
+<br/>
+18. Financial support already assured/approached from other sources:
+<br/><br/>
+&emsp;&emsp;- Organizer : <input type="text" name="org"><br/><br/>
+&emsp;&emsp;- Parent Organization : <input type="text" name="parent_org"><br/><br/>
+&emsp;&emsp;- Any other : <input type="text" name="any_other">
+<br/>
+<br/>
+19. Estimated cost of <b>Air Fare</b>: Rs. <input type="text" name="cost">
+<br/>
+<br/>
+20. Amount of assistance requested from CSIR for Air Fare (50% air fare subject to maximum of
+          Rs 30,000/-): Rs. <input type="text" name="amount">	
+<br/>
+
+<p><b><u>Note</u>: In case the grant is sanctioned, The journey should be strictly performed by the shortest route in excursion economy class by Air India only. 
+Tickets must be purchased directly from the booking counters/Website of Air India Airlines or by utilizing the services of Authorized Travel Agents viz.
+M/s Balmer Lawrie & Company, M/s Ashok Travels & Tours and IRCTC as warranted under Govt. of India orders in this subject.</b></p>
+
+21. State  the  name  of  the  Authority  (Director,  registrar,  Dean  or  any  other  designated authority) of society/Institution/organization
+to whom the grant can be released..<br/><b>&emsp;(Please note that the grant cannot be released to an individual's account)</b> :<input type="text" name="dir_name">
+<br/>
+<br/>
+22. Research papers published in indexed journals by the applicant in the last 5 years. (Attach
+    Reprints of the two best papers. Do not include abstracts, conference proceedings etc.)
+
+<br/>
+<br/>
+	<table style="width:65%">
+	<tr>
+		<th>S.No </th>
+		<th>Names of all authors</th>
+		<th>Title of the paper</th>
+		<th>Name of the Journal and Volume, Year and Page Number</th>
+	</tr>
+	<tr>	
+		<td>1. </td>
+		<td>&emsp;&emsp;<input type="text" name="name11" style="width:98%;">&emsp;</br></td>
+		<td>&emsp;&emsp;<input type="text" name="title11" style="width:98%;">&emsp;</br></td>
+		<td>&emsp;&emsp;<input type="text" name="volume11" style="width:98%;">&emsp;</br></td>
+		
+	</tr>
+	<tr>	
+		<td>2. </td>
+		<td>&emsp;&emsp;<input type="text" name="name12" style="width:98%;">&emsp;</br></td>
+		<td>&emsp;&emsp;<input type="text" name="title12" style="width:98%;">&emsp;</br></td>
+		<td>&emsp;&emsp;<input type="text" name="volume12" >&emsp;</br></td>
+		
+	</tr>
+	</table>
+
+
+<br/>
+<br/>
+23. Details of foreign travel assistance received, if any, from CSIR in the last 3 years:
+<br/>
+<br/>
+<table style="width:65%">
+	<tr>
+		<th>Organization</th>
+		<th>Year(Date)</th>
+		<th>Place Visited</th>
+		<th>Sanction No.</th>
+		<th>Amount Received </br>(in Rs.)</th>
+	</tr>
+	<tr>	
+		<td>&emsp;&emsp;<input type="text" name="csir_name">&emsp;</br></td>
+		<td>&emsp;&emsp;<input type="number" name="csir_year">&emsp;</br></td>
+		<td>&emsp;&emsp;<input type="text" name="csir_place">&emsp;</br></td>
+		<td>&emsp;&emsp;<input type="text" name="csir_number">&emsp;</br></td>
+		<td>&emsp;&emsp;<input type="number" name="csir_amount">&emsp;</br></td>
+		
+	</tr>
+
+	</table>
+
+<br/>
+<br/>
+24. Any other information : <input type="text" name="other_info">
+
+<br/>
+<br/>
+25. &emsp;<input type="radio" name="agree" required value="check"><b>&emsp;I further declare that the information furnished above is correct and that I have not availed support from CSIR in the last 3 years under 
+       this Scheme.</b>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<input type="submit" value="Submit">
+
+    </div>
+	</div>
+	</div>
+	</div>
+{% endblock %}
+
+</body>
+</html>

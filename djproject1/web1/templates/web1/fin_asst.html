@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CSIR-Finance</title>
+    <style>
+
+	   #f11 {
+		    width:100%;
+			padding: 10px ;
+            border: 1px solid black ;
+		}
+
+        #f12 {
+		    width:10%;	
+            position: relative;
+            text-align:center;
+            font-size:20px;
+			font-family:Arial;
+            background-color: rgb(0,30,80);
+            padding: 10px ;
+            border: 1px solid black ;
+			float: top;
+		}
+
+	</style>
+
+
+</head>
+<body>
+{% extends "web1/finance.html" %}
+
+{% block finance  %}
+</br>
+</br>
+
+
+
+<div id="f11">
+
+    <div class="container">
+        <form action="{% url 'fin_asst' %}" method="post" >
+            {% csrf_token %}
+                <div class="panel panel-default">
+                    
+                    <div class="panel-body">
+                        {% if error_message %}
+                            <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+                        {% endif %}
+
+
+	<h1 style="font-size:100%, font-weight: bold;"><center>COUNCIL OF SCIENTIFIC AND INDUSTRIAL RESEARCH HUMAN RESOURCE DEVELOPMENT GROUP
+		</center></h1>
+	<h1  style="font-size:100%;"><center>
+ 		CSIR COMPLEX OPP INSTITUTE OF HOTEL MANAGEMENT LIBRARY AVENUE, PUSA, NEW DELHI- 110012, INDIA<br>
+		Email: tgsm[at]csirhrdg[dot]res[dot]in<br>
+		Phone:011-25841037
+</center>
+  	</h1>
+	<p><center>Partial Financial Assistance (PFA) Scheme for Indian regular employees
+   		(Non-CSIR) for participation in International scientific events abroad 
+	</center></p>
+
+<br/>
+<h2 style="font-size:110%;"><center>SUMMARY SHEET</center></h2>
+<br/>
+<br/>
+Username : <input value="{{ user.username }}">  </br></br>
+1.Full name :&emsp;<input type="text" name="first_name">
+<input type="text" name="last_name">
+
+<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;First Name &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Last Name</p>
+<br/>
+2.Date Of Birth  :&emsp;<input type="date"/ name="dob">
+<br/>
+<br/>
+3.Designation and Affiliation : &emsp;<input type="text" name="designation"> 
+<br/>
+<br/>
+4.Name of Scientific Event (Conference/Symposium/Workshop/Training/etc) :&emsp; <input type="text" name="event">
+<br/>
+<br/>
+5.Venue (City/ Country) : &emsp;<input type="text" name="venue"> 
+<br/>
+<br/>
+6.Dates  : From &emsp;<input type="date" name="start_date"/>&emsp;  to &emsp;<input type="date"  name="end_date"/>
+<br/>
+<br/>
+7.Number of Publications in indexed Journal:  &emsp;<input type="text" name="number">&emsp; numbers
+<br/>
+<br/>
+<input type="submit"  value="Submit" >
+
+    </div>
+	</div>
+	</div>
+	</div>
+{% endblock %}
+
+</body>
+</html>
